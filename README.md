@@ -32,7 +32,7 @@ kiara run examples/pipelines/network_analysis/create_network_graph.yaml
 # run the create network pipeline with the example data and save the 'network_data' result field as alias 'journals_network' 
 kiara run examples/pipelines/network_analysis/create_network_graph.yaml --save network_data=journals_network
 # 'explain' the result network (basically display it's metadata)
-kiara data explain -p alias:journals_data
+kiara data explain -p alias:journals_network
 ```
 
 
