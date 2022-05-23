@@ -1,6 +1,6 @@
 # kiara examples
 
-A repository containing example data nad pipelines for kiara.
+A repository containing example data and pipelines for kiara.
 
 ## Prepare Python environment
 
