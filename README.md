@@ -47,5 +47,7 @@ kiara run examples/pipelines/topic_modeling/topic_modeling.yaml
 kiara run examples/pipelines/topic_modeling/topic_modeling.yaml --save tm
 # run the topic modeling pipeline with some additional inputs to augment the defaults and save all results:
 kiara run examples/pipelines/topic_modeling/topic_modeling.yaml compute_coherence=true num_topics_min=4 num_topics_max=6 --save tm_coherence
+# 'load' the topic model data
+kiara data load alias:tm_coherence.topic_models
 ```
 
