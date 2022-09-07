@@ -1,5 +1,5 @@
-pipeline_name: import_corpus
-doc: End-to-end topic-modeling pipeline.
+pipeline_name: topic_modeling
+doc: Example topic-modeling end-to-end workflow.
 steps:
   - module_type: import.file_bundle
     step_id: import_text_corpus
@@ -11,6 +11,14 @@ steps:
     step_id: extract_texts_column
     input_links:
       table: create_text_corpus.table
+  - module_type: table.cut_column
+    step_id: extract_filename_column
+    input_links:
+      table: create_text_corpus.table
+  - module_type: parse.date_array
+    step_id: create_date_array
+    input_links:
+      array: extract_filename_column.array
   - module_type: tokenize.texts_array
     step_id: tokenize_content
     input_links:
@@ -29,7 +37,12 @@ steps:
 
 input_aliases:
   extract_texts_column.column_name: content_column_name
+  extract_filename_column.column_name: filename_column_name
   import_text_corpus.path: text_corpus_folder_path
+  create_date_array.min_index: date_parse_min
+  create_date_array.max_index: date_parse_max
+  create_date_array.force_non_null: date_force_non_null
+  create_date_array.remove_tokens: date_remove_tokensl
   tokenize_content.tokenize_by_word: tokenize_by_word
   generate_lda.num_topics_min: num_topics_min
   generate_lda.num_topics_max: num_topics_max
@@ -53,8 +66,14 @@ output_aliases:
   generate_lda.topic_models: topic_models
   generate_lda.coherence_map: coherence_map
   generate_lda.coherence_table: coherence_table
+  create_date_array.date_array: date_array
 
 defaults:
   content_column_name: "content"
-  text_corpus_folder_path: "${pipeline_dir}/../../data/text_corpus_minimal"
+  filename_column_name: "file_name"
+  date_parse_min: 11
+  date_parse_max: 21
+  text_corpus_folder_path: "${pipeline_dir}/../../data/text_corpus/data"
   languages: ["italian"]
+  stopword_lists: []
+  num_topics_max: 7
