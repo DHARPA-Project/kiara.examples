@@ -76,4 +76,6 @@ defaults:
   text_corpus_folder_path: "${pipeline_dir}/../../data/text_corpus/data"
   languages: ["italian"]
   stopword_lists: []
-  num_topics_max: 7
+  num_topics_min: 7
+  num_topics_max: 9
+  compute_coherence: true
