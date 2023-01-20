@@ -3,15 +3,15 @@ doc: Example topic-modeling end-to-end workflow.
 steps:
   - module_type: import.file_bundle
     step_id: import_text_corpus
-  - module_type: create.table.from.text_file_bundle
+  - module_type: create.table.from.file_bundle
     step_id: create_text_corpus
     input_links:
-      text_file_bundle: import_text_corpus.file_bundle
-  - module_type: table.cut_column
+      file_bundle: import_text_corpus.file_bundle
+  - module_type: table.pick.column
     step_id: extract_texts_column
     input_links:
       table: create_text_corpus.table
-  - module_type: table.cut_column
+  - module_type: table.pick.column
     step_id: extract_filename_column
     input_links:
       table: create_text_corpus.table
@@ -49,7 +49,7 @@ input_aliases:
   generate_lda.compute_coherence: compute_coherence
   generate_lda.words_per_topic: words_per_topic
   create_stopwords_list.languages: languages
-  create_stopwords_list.stopword_lists: stopword_lists
+  create_stopwords_list.stopword_list: stopword_list
   preprocess_corpus.to_lowercase: to_lowercase
   preprocess_corpus.remove_alphanumeric: remove_alphanumeric
   preprocess_corpus.remove_non_alpha: remove_non_alpha
@@ -75,7 +75,7 @@ defaults:
   date_parse_max: 21
   text_corpus_folder_path: "${pipeline_dir}/../../data/text_corpus/data"
   languages: ["italian"]
-  stopword_lists: []
+  stopword_list: []
   num_topics_min: 7
   num_topics_max: 9
   compute_coherence: true
