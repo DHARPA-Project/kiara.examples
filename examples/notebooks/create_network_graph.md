@@ -15,10 +15,11 @@ jupyter:
 ---
 
 ```python
-%env CONSOLE_WIDTH=140
+% env
+CONSOLE_WIDTH = 140
 
 from kiara.interfaces.python_api.workflow import Workflow
-from kiara.utils.jupyter import graph_to_image
+from kiara.utils.graphs import graph_to_image
 from kiara.utils.cli import terminal_print_model
 ```
 
