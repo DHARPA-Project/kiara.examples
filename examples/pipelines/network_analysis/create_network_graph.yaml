@@ -33,8 +33,8 @@ output_aliases:
   assemble_network_data.network_data: network_data
 
 defaults:
-  edges_file: "${pipeline_dir}/../../data/journals/JournalEdges1902.csv"
-  nodes_file: "${pipeline_dir}/../../data/journals/JournalNodes1902.csv"
+  edges_file: "${pipeline_dir}/../../data/network_analysis/journals/JournalEdges1902.csv"
+  nodes_file: "${pipeline_dir}/../../data/network_analysis/journals/JournalNodes1902.csv"
   source_column_name: Source
   target_column_name: Target
   id_column_name: Id

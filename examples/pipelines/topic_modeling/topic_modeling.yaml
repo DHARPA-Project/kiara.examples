@@ -73,7 +73,7 @@ defaults:
   filename_column_name: "file_name"
   date_parse_min: 11
   date_parse_max: 21
-  text_corpus_folder_path: "${pipeline_dir}/../../data/text_corpus/data"
+  text_corpus_folder_path: "${pipeline_dir}/../../data/language_processing/text_corpus/data"
   languages: ["italian"]
   stopwords: []
   num_topics_min: 7
