@@ -1,7 +1,7 @@
 ## Large network data dataset for testing
 
 This is a gephi file in an old file format that networkX should be able to deal with (GEXF 1.2). 
-It has been modiefied to meet some other networkX requirements: 
+It has been modified to meet some other networkX requirements: 
 - All edges have been converted to undirected, because networkX does not support a mix of directed and undirected edges in one dataset.
 - This line has been added (ln12):  ```<attribute id="n@nationality" title="nationality" type="string"/>``` to avoid another error
 
