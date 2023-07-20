@@ -3,3 +3,4 @@
 *.log
 tmp/
 **/.ipynb_checkpoints/**
+.pixi

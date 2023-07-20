@@ -2,16 +2,27 @@
 
 A repository containing example data and pipelines for kiara.
 
-## Prepare Python environment
+## Prepare environment
 
-### Using conda (recommended)
+### Using pixi (recommended)
 
+#### macOS and Linux
+To install Pixi on macOS and Linux, open a terminal and run the following command:
+```bash
+curl -fsSL https://raw.githubusercontent.com/prefix-dev/pixi/main/install/install.sh | bash
+# or with brew
+brew install pixi
 ```
-conda create -n kiara_examples python=3.9
-conda activate kiara_examples
-conda install -c conda-forge mamba   # this is optional, but makes everything install related much faster, if you don't use it, replace 'mamba' with 'conda' below
-mamba install -c conda-forge -c dharpa kiara kiara_plugin.core_types kiara_plugin.tabular kiara_plugin.network_analysis kiara_plugin.language_processing
+The script will also update your ~/.bash_profile to include ~/.pixi/bin in your PATH, allowing you to invoke the pixi command from anywhere.
+You might need to restart your terminal or source your shell for the changes to take effect.
+
+#### Windows
+To install Pixi on Windows, open a PowerShell terminal (you may need to run it as an administrator) and run the following command:
+
+```powershell
+iwr -useb https://raw.githubusercontent.com/prefix-dev/pixi/main/install/install.ps1 | iex
 ```
+The script will inform you once the installation is successful and add the ~/.pixi/bin directory to your PATH, which will allow you to run the pixi command from any location.
 
 ## Check-out examples repo
 
@@ -20,47 +31,60 @@ git clone https://github.com/DHARPA-Project/kiara.examples.git
 cd kiara.examples
 ```
 
-## Run included pipelines
+## Run tasks
 
-Networking analysis examples:
+Pre-defined tasks can be run via the `pixi` command. If you want to run `kiara` directly, you'll need to use the full 
+path to it, something like:
 
 ```
-# explain the create network pipeline
-kiara operation explain examples/pipelines/network_analysis/create_network_graph.yaml
+.pixi/env/bin/kiara --version
+```
 
-# display some internal pipeline details
-kiara pipeline explain examples/pipelines/network_analysis/create_network_graph.yaml
+### Predefined tasks
 
-# run the create network pipeline with the example data
-kiara run examples/pipelines/network_analysis/create_network_graph.yaml
+#### Display kiara and kiara plugin versions
 
-# run the create network pipeline with the example data and save the 'network_data' result field as alias 'journals_network' 
-kiara run examples/pipelines/network_analysis/create_network_graph.yaml --save network_data=journals_network
-
-# 'explain' the result network (basically display it's metadata)
-kiara data explain -p alias:journals_network
+```
+pixi run show-version
 ```
 
 
-Topic modeling examples:
+#### Delete the current kiara context
 
 ```
-# explain the topic modeling pipeline
-kiara operation explain examples/pipelines/topic_modeling/topic_modeling.yaml
-
-# print the execution graph
-kiara pipeline execution-graph examples/pipelines/topic_modeling/topic_modeling.yaml
-
-# run the topic modeling pipeline with the default example values
-kiara run examples/pipelines/topic_modeling/topic_modeling.yaml
-
-# run the topic modeling pipeline with the default example values and save all results (and intermediate results)
-kiara run examples/pipelines/topic_modeling/topic_modeling.yaml --save tm
-
-# run the topic modeling pipeline with some additional inputs to augment the defaults and save all results:
-kiara run examples/pipelines/topic_modeling/topic_modeling.yaml compute_coherence=true num_topics_min=4 num_topics_max=6 --save tm_coherence
-
-# 'load' the topic model data
-kiara data load alias:tm_coherence.topic_models
+pixi run delete-context
 ```
+
+To delete all contexts, use:
+
+```
+pixi run delete-context -a
+```
+
+#### Run a kiara command
+
+```
+pixi run kiara <sub-command> <options>
+```
+
+For example, to run the example [`create_network_graph`](./examples/pipelines/network_analysis/create_network_data.yaml) pipeline, you can do:
+
+```
+pixi run kiara run examples/pipelines/network_analysis/create_network_data.yaml edges_file=examples/data/network_analysis/journals/JournalEdges1902.csv nodes_file=examples/data/network_analysis/journals/JournalNodes1902.csv
+```
+
+#### Run a streamlit app
+
+Streamlit apps can be found under `examples/streamlit`. Use the path to the app you want to run as argument to:
+
+```
+pixi run streamlit examples/streamlit/<app_name>.py
+```
+
+For example:
+
+```
+pixi run streamlit examples/streamlit/analyze_network_data.py
+```
+
 
