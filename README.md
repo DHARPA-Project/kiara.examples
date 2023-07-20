@@ -84,6 +84,12 @@ pixi run streamlit examples/streamlit/<app_name>.py
 For example:
 
 ```
+pixi run streamlit examples/streamlit/workshop.py
+```
+
+Or: 
+
+```
 pixi run streamlit examples/streamlit/analyze_network_data.py
 ```
 
