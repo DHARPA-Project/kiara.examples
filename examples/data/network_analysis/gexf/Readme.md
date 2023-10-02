@@ -1,4 +1,4 @@
-## Large network data dataset for testing
+## Large Gephi file for testing
 
 This is a gephi file in an old file format that networkX should be able to deal with (GEXF 1.2). 
 It has been modified to meet some other networkX requirements: 
