@@ -7,20 +7,18 @@ channels = ["conda-forge", "dharpa"]
 platforms = ["linux-64", "win-64", "osx-64", "osx-arm64"]
 
 [tasks]
-show-version = "kiara --version"
-backend = "kiara service start"
+show-versions = "kiara --version"
 delete-context = "kiara context delete"
 streamlit = "streamlit run"
 kiara = "kiara"
 
 
 [dependencies]
-"kiara_plugin.onboarding" = ">=0.4.7"
-kiara = ">=0.4.48"
-"kiara_plugin.tabular" = ">=0.4.29"
-python = ">=3.10.0"
-"kiara_plugin.language_processing" = "0.4.14"
-"kiara_plugin.network_analysis" = "0.4.14"
-"kiara_plugin.service" = ">=0.4.6"
-"kiara_plugin.streamlit" = ">=0.4.6"
-"kiara_plugin.html" = "0.4.4"
+"kiara_plugin.onboarding" = ">=0.5.0,<0.6.0"
+kiara = ">=0.5.3"
+"kiara_plugin.tabular" = ">=0.5.0,<0.6.0"
+python = ">=3.11.0,<3.12.0"
+"kiara_plugin.language_processing" = ">=0.5.0,<0.6.0"
+"kiara_plugin.network_analysis" = ">=0.5.0,<0.6.0"
+"kiara_plugin.streamlit" = ">=0.5.0,<0.6.0"
+"kiara_plugin.html" = ">=0.5.0,<0.6.0"

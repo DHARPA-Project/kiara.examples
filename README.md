@@ -9,7 +9,7 @@ A repository containing example data and pipelines for kiara.
 #### macOS and Linux
 To install Pixi on macOS and Linux, open a terminal and run the following command:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/prefix-dev/pixi/main/install/install.sh | bash
+curl -fsSL https://pixi.sh/install.sh | bash
 # or with brew
 brew install pixi
 ```
@@ -20,7 +20,7 @@ You might need to restart your terminal or source your shell for the changes to 
 To install Pixi on Windows, open a PowerShell terminal (you may need to run it as an administrator) and run the following command:
 
 ```powershell
-iwr -useb https://raw.githubusercontent.com/prefix-dev/pixi/main/install/install.ps1 | iex
+iwr -useb https://pixi.sh/install.ps1 | iex
 ```
 The script will inform you once the installation is successful and add the ~/.pixi/bin directory to your PATH, which will allow you to run the pixi command from any location.
 
@@ -45,7 +45,7 @@ path to it, something like:
 #### Display kiara and kiara plugin versions
 
 ```
-pixi run show-version
+pixi run show-versions
 ```
 
 
