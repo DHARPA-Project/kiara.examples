@@ -44,7 +44,7 @@ path to it, something like:
 
 ### Predefined tasks
 
-Check the `pixi.toml` for the full list of tasks. The most important ones are listed below.
+Check the `pixi.toml` file for the full list of tasks. The most important ones are listed below.
 
 #### Display kiara and kiara plugin versions
 
