@@ -44,6 +44,8 @@ path to it, something like:
 
 ### Predefined tasks
 
+Check the `pixi.toml` for the full list of tasks. The most important ones are listed below.
+
 #### Display kiara and kiara plugin versions
 
 ```
@@ -95,4 +97,5 @@ Or:
 pixi run streamlit examples/streamlit/analyze_network_data.py
 ```
 
+(this one might or might not make sense to you, as it's a proof-of-concept to demonstrate and help discussion around onboarding of complex data types like for example the 'network_data' one)
 
