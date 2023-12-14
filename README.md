@@ -6,6 +6,8 @@ A repository containing example data and pipelines for kiara.
 
 ### Using pixi (recommended)
 
+It's easiest to use [pixi](https://github.com/prefix-dev/pixi) to setup the environment. Check out [their install instructions](https://github.com/prefix-dev/pixi#installation), the following might or might not be out of date:
+
 #### macOS and Linux
 To install Pixi on macOS and Linux, open a terminal and run the following command:
 ```bash
@@ -75,7 +77,7 @@ pixi run kiara run examples/pipelines/network_analysis/create_network_data.yaml 
 
 #### Run a streamlit app
 
-Streamlit apps can be found under `examples/streamlit`. Use the path to the app you want to run as argument to:
+Streamlit apps can be found under [`examples/streamlit`](https://github.com/DHARPA-Project/kiara.examples/tree/main/examples/streamlit). Use the path to the app you want to run as argument to:
 
 ```
 pixi run streamlit examples/streamlit/<app_name>.py

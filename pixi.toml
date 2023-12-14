@@ -3,7 +3,7 @@ name = "kiara-project-viewer"
 version = "0.1.0"
 description = "kiara project viewer"
 authors = []
-channels = ["conda-forge", "dharpa"]
+channels = ["dharpa", "conda-forge"]
 platforms = ["linux-64", "win-64", "osx-64", "osx-arm64"]
 
 [tasks]
