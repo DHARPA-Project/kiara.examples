@@ -85,7 +85,7 @@ pixi run kiara run examples/pipelines/network_analysis/create_network_data.yaml 
 ##### List all available operations
 
 ```
-kiara operation list
+pixi run kiara operation list
 ```
 
 ##### List all available renderers
