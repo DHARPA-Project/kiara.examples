@@ -71,15 +71,37 @@ pixi run delete-context -a
 pixi run kiara <sub-command> <options>
 ```
 
-For example, to run the example [`create_network_graph`](./examples/pipelines/network_analysis/create_network_data.yaml) pipeline, you can do:
+
+#### Examples of `kiara` commands to run
+
+##### Run a pipeline
+
+This command runs the example pipeline ['`create_network_graph`'](./examples/pipelines/network_analysis/create_network_data.yaml), with some inputs that lives under `examples/data`:
 
 ```
 pixi run kiara run examples/pipelines/network_analysis/create_network_data.yaml edges_file=examples/data/network_analysis/journals/JournalEdges1902.csv nodes_file=examples/data/network_analysis/journals/JournalNodes1902.csv
 ```
 
-#### Examples of `kiara` commands to run
+##### List all available operations
 
-##### Render a jupyter notebook from a pipeline 
+```
+kiara operation list
+```
+
+##### List all available renderers
+
+```
+pixi run kiara render list-renderers
+```
+
+##### Render a jupyter notebook from a registered pipeline
+
+```
+pixi run kiara render --source-type pipeline --target-type jupyter_notebook item logic.xor inputs='{"a": true, "b": true}' > xor.ipynb
+pixi run jupyter lab xor.ipynb
+```
+
+##### Render a jupyter notebook from a pipeline file
 ```
 pixi run kiara render --source-type pipeline --target-type jupyter_notebook item examples/pipelines/topic_modeling/topic_modeling.yaml inputs='{"text_corpus_folder_path": "examples/data/language_processing/text_corpus/data"}' > topic_modeling.ipynb
 pixi run jupyter lab topic_modeling.ipynb
