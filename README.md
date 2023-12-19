@@ -77,6 +77,14 @@ For example, to run the example [`create_network_graph`](./examples/pipelines/ne
 pixi run kiara run examples/pipelines/network_analysis/create_network_data.yaml edges_file=examples/data/network_analysis/journals/JournalEdges1902.csv nodes_file=examples/data/network_analysis/journals/JournalNodes1902.csv
 ```
 
+#### Examples of `kiara` commands to run
+
+##### Render a jupyter notebook from a pipeline 
+```
+pixi run kiara render --source-type pipeline --target-type jupyter_notebook item examples/pipelines/topic_modeling/topic_modeling.yaml inputs='{"text_corpus_folder_path": "examples/data/language_processing/text_corpus/data"}' > topic_modeling.ipynb
+pixi run jupyter lab topic_modeling.ipynb
+```
+
 #### Run a streamlit app
 
 Streamlit apps can be found under [`examples/streamlit`](https://github.com/DHARPA-Project/kiara.examples/tree/main/examples/streamlit). Use the path to the app you want to run as argument to:
