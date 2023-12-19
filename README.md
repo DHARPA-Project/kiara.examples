@@ -32,28 +32,38 @@ The script will inform you once the installation is successful and add the ~/.pi
 git clone https://github.com/DHARPA-Project/kiara.examples.git
 cd kiara.examples
 ```
+## Run `kiara` directly
 
-## Run tasks
-
-Pre-defined tasks can be run via the `pixi` command. If you want to run `kiara` directly, you'll need to use the full 
-path to it, something like:
+If you want to run `kiara` directly (instead of using a `pixi` predefined task, you can use the full 
+path to the `kiara` executable:
 
 ```
 .pixi/env/bin/kiara --version
 ```
 
+## Run pre-defined tasks via pixi
+
+Pre-defined tasks can be run via the `pixi` command. 
+
 ### Predefined tasks
 
 Check the `pixi.toml` file for the full list of tasks. The most important ones are listed below.
 
-#### Display kiara and kiara plugin versions
+#### Run a kiara command
+
+```
+pixi run kiara <sub-command> <options>
+```
+
+#### Examples of `kiara` commands to run
+
+##### Display kiara and kiara plugin versions
 
 ```
 pixi run show-versions
 ```
 
-
-#### Delete the current kiara context
+##### Delete the current kiara context
 
 ```
 pixi run delete-context
@@ -65,27 +75,18 @@ To delete all contexts, use:
 pixi run delete-context -a
 ```
 
-#### Run a kiara command
+##### List all available operations
 
 ```
-pixi run kiara <sub-command> <options>
+pixi run kiara operation list
 ```
 
-
-#### Examples of `kiara` commands to run
-
-##### Run a pipeline
+##### Run a pipeline defined in a yaml file
 
 This command runs the example pipeline ['`create_network_graph`'](./examples/pipelines/network_analysis/create_network_data.yaml), with some inputs that lives under `examples/data`:
 
 ```
 pixi run kiara run examples/pipelines/network_analysis/create_network_data.yaml edges_file=examples/data/network_analysis/journals/JournalEdges1902.csv nodes_file=examples/data/network_analysis/journals/JournalNodes1902.csv
-```
-
-##### List all available operations
-
-```
-pixi run kiara operation list
 ```
 
 ##### List all available renderers
@@ -115,13 +116,20 @@ Streamlit apps can be found under [`examples/streamlit`](https://github.com/DHAR
 pixi run streamlit examples/streamlit/<app_name>.py
 ```
 
-For example:
+#### Examples of streamlit apps to run
 
+##### A streamlit version of the workshop getting started notebook
 ```
 pixi run streamlit examples/streamlit/workshop.py
 ```
 
-Or: 
+##### A development helper mini-app to display kiara operations and streamlit components
+
+```
+pixi run streamlit examples/streamlit/info/dev_helper.py
+```
+
+##### A proof-of-concept streamlit app to onboard network data
 
 ```
 pixi run streamlit examples/streamlit/analyze_network_data.py
